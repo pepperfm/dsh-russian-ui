@@ -71,7 +71,7 @@ test('build is deterministic and committed output is current', () => {
 test('runtime has no adapters, private paths, IO or preference writes', () => {
   const source = read('lib/client.js') + read('lib/index.js') + read('build.mjs');
   assert.doesNotMatch(source, /whale|\/Users\/|\/tmp\/|node_modules|fetch\(|localStorage\s*[.\[]|setLocale\(/i);
-  const pkg = JSON.parse(read('package.json')); assert.equal(pkg.version, '0.2.0'); assert.equal(pkg.name, 'dsh-russian-ui');
+  const pkg = JSON.parse(read('package.json')); assert.equal(pkg.version, '0.2.1'); assert.equal(pkg.name, 'dsh-russian-ui');
   assert.equal(pkg.dependencies, undefined); assert.equal(pkg.devDependencies, undefined);
   for (const hook of ['install', 'postinstall', 'preinstall', 'prepare']) assert.equal(pkg.scripts[hook], undefined);
 });
