@@ -1,0 +1,18 @@
+{
+  "name": "dsh-russian-ui",
+  "version": "0.2.0",
+  "description": "Русский язык для встроенного интерфейса DeepSeek Harness",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": { ".": "./lib/index.js", "./client": "./lib/client.js", "./package.json": "./package.json" },
+  "files": ["lib", "locales", "cordis.patch.yml", "LICENSE", "THIRD_PARTY_NOTICES", "README.md"],
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" }, "client": { "platform": "web", "inject": ["@deepseek-ai/dsh-client-locale"] } },
+  "scripts": { "build": "node build.mjs", "check": "node build.mjs --check", "test": "node --test", "prepack": "node build.mjs && node --test" },
+  "engines": { "node": ">=22" },
+  "author": "pepperfm",
+  "keywords": ["deepseek-harness", "dsh", "dsh-plugin", "russian", "locale", "i18n"],
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/pepperfm/dsh-russian-ui.git" },
+  "bugs": { "url": "https://github.com/pepperfm/dsh-russian-ui/issues" },
+  "homepage": "https://github.com/pepperfm/dsh-russian-ui#readme"
+}

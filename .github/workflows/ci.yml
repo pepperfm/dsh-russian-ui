@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: node build.mjs --check
+      - run: node --test
+      - run: node --check build.mjs && node --check lib/client.js && node --check lib/index.js && node --check test/locale.test.mjs
+      - run: npm pack --dry-run --ignore-scripts
